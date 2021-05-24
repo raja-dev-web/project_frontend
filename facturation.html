@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RDM ERP - Facturation</title>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="images/favicon.png">
+</head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <div class="bg-light border-right" id="sidebar-wrapper">
+                <div class="d-flex align-items-center justify-content-center"><img src="images/user/admin.png" alt="" class="avatar"></div>
+                <hr>
+                <div id="menu" class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action bg-light" href="dashboard.html">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img src="images/icons/dashboard.png" alt="" class="dash_icons">
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                       <h6>Dashboard</h6> 
+                    </div></a>
+                    <a class="list-group-item list-group-item-action bg-light" href="achats.html">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img src="images/icons/achats.png" alt="" class="dash_icons">
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                       <h6>Achats</h6> 
+                    </div></a>
+                    <a class="list-group-item list-group-item-action bg-light" href="ventes.html">
+                    <div class="d-flex align-items-center justify-content-center ">
+                        <img src="images/icons/ventes.png" alt="" class="dash_icons">
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center ">
+                       <h6>Ventes</h6> 
+                    </div></a>
+                    <!-- <a class="list-group-item list-group-item-action bg-light" href="marketing.html">
+                    <div class="d-flex align-items-center justify-content-center ">
+                        <img src="images/icons/marketing.png" alt="" class="dash_icons">
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center ">
+                       <h6>Marketing</h6> 
+                    </div></a> -->
+                    <a class="list-group-item list-group-item-action bg-light" href="logistics.html">
+                    <div class="d-flex align-items-center justify-content-center ">
+                        <img src="images/icons/logistics.png" alt="" class="dash_icons">
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center ">
+                       <h6>Logistics</h6> 
+                    </div></a>
+                    <a class="list-group-item list-group-item-action bg-light" href="facturation.html">
+                    <div class="d-flex align-items-center justify-content-center ">
+                        <img src="images/icons/invoice.png" alt="" class="dash_icons">
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center ">
+                       <h6>Facturation</h6> 
+                    </div></a>
+                </div>
+            </div>
+            <!-- Page Content-->
+            <div id="page-content-wrapper" class="d-flex flex-column">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                   <img src="images/icons/toggle.png" id="menu-toggle">
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group" id="search">
+                            <input type="text" class="form-control bg-light small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2" id="search">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" id="btn_search">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars ml-2"></i></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-search"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-bell"></i>
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>
+                        </li>
+
+                        
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-envelope"></i>
+                                <span class="badge badge-danger badge-counter">7</span>
+                            </a>
+                        </li>
+
+                       
+
+                        
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <img class="img-profile rounded-circle"
+                                    src="images/user/admin.png" id="profile_img">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-user"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-cogs"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-list"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="index.html">
+                                    <i class="fa fa-sign-out"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!-- </nav> -->
+                </nav>
+
+                <div class="container-fluid">
+                    <div class="d-sm-flex align-items-center justify-content-center">
+                        <h3 class="heading">FACTURATION</h3>
+                    </div>
+                    <div class="row fac_status">
+                        <div class="col-md-3">
+                            <div class="card-body status_fac">
+                               <h4 class="fact alt_not">4</h4> 
+                               <h6 class="fact alt_not">Facture non lues</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card-body status_fac">
+                                <h4 class="fact alt_not">2191 €</h4> 
+                                <h6 class="fact alt_not">11 Factures en retard</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card-body status_fac">
+                                <h4 class="fact alt_not1">0 €</h4> 
+                                <h6 class="fact alt_not1">Total des avoirs</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card-body status_fac">
+                                <h4 class="fact alt_not1">2191 €</h4> 
+                                <h6 class="fact alt_not1">11 Factures en cours</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <div class="row header">
+                                <div class="col-6 btn_left">
+                                    <button type="button" class="btn btn-outline-default waves-effect"><i class="fa fa-plus" aria-hidden="true"></i>Generate Invoices</button>
+                                    <button type="button" class="btn btn-outline-default waves-effect"><i class="fa fa-plus" aria-hidden="true"></i>Invoice</button>
+                                </div>
+                                <div class="col-6 btn_right">
+                                    <button type="button" class="btn btn-primary badges">
+                                    Brouillon <span class="badge badge-light">9</span>
+                                    </button>
+                                    <button type="button" class="btn btn-primary badges">
+                                    Prête <span class="badge badge-light">12</span>
+                                    </button>
+                                    <button type="button" class="btn btn-primary badges">
+                                    Envoyée <span class="badge badge-light">7</span>
+                                    </button>
+                                    <button type="button" class="btn btn-primary badges">
+                                    Payée <span class="badge badge-light">15</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th><input type="checkbox" onclick="checkAll(this)"></th>
+                                            <th>Reference</th>
+                                            <th>VAT Incl.</th>
+                                            <th>Client</th>
+                                            <th>Date</th>
+                                            <th>Due date</th>
+                                            <th>Amount VAT Excl.</th>
+                                            <th>Responsable</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#" class="ref">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#" class="ref">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Marionnaud</td>
+                                            <td>22 jul 2020</td>
+                                            <td>27 Août 2020</td>
+                                            <td>1,700.00 €</td>
+                                            <td>Nicolas</td>
+                                            <td>Envoyée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Yves-Rocher</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Nicolas</td>
+                                            <td>Envoyée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Passion Beauté</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Nocibé</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>The Body Shop</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Saga Cosmetics</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Beauty Success</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Nicolas</td>
+                                            <td>Envoyée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Envoyée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr><td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Beauty Success</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Envoyée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Marionnaud</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Nocibé</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Nicolas</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Passion Beauté</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Envoyée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Yves-Rocher</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Beauty Success</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Nicolas</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Marionnaud</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Envoyéé</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                           <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Beauty Success</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Nicolas</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Beauty Success</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Nicolas</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Beauty Success</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Nicolas</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name=""></td>
+                                            <td><a href="#">2017001</a></td>
+                                            <td>1,815.00 €</td>
+                                            <td>Sephora</td>
+                                            <td>26 May 2020</td>
+                                            <td>26 Jun 2020</td>
+                                            <td>1,500.00 €</td>
+                                            <td>Jean-Yves</td>
+                                            <td>Payée</td>
+                                            <td><a href="#"><i class="fa fa-calendar-check-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-word-o"></a></i>
+                                            <a href="#"><i class="fa fa-file-pdf-o"></a></i>
+                                            <a href="#"><i class="fa fa-trash-o"></a></i></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+        </div>
+    </div>
+</div>
+<footer class="footer box">
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <td class="data">Copyright ©RDM ERP - Tous droits réservés</td>
+                        <td class="data"><ul class="list-inline social mb-0">
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook"></i></a><a href="#" class="social-link"><i class="fa fa-twitter"></i></a><a href="#" class="social-link"><i class="fa fa-youtube-play"></i></a><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
+                      </ul></td>
+                        <td class="data">Politique de confidentialité Mentions légales</td>
+                    </tr>
+                </tbody>
+            </table>
+        </footer>
+
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+        <!-- <script src="js/demo/datatables-demo.js"></script> -->
+    </body>
+</html>

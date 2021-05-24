@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RDM ERP</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600">
+    <!-- Lightbox-->
+    <link rel="stylesheet" href="vendor/lightbox2/css/lightbox.css">
+    <!-- Custom font icons-->
+    <link rel="stylesheet" href="css/fontastic.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="images/favicon.png">
+</head>
+  <body>
+    <!-- navbar-->
+    <header class="header">
+      <nav class="navbar navbar-expand-lg fixed-top">
+         <div class="container"><a href="./" class="navbar-brand"> <img src="images/logo_transparent.png" alt="" class="fluid"></a>
+          <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars ml-2"></i></button>
+          <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li ><a href="#" class="btn btn-primary navbar-btn ml-0 ml-lg-3">RDM ERP </a></li>
+                <li ><a href="#" class="btn btn-primary navbar-btn ml-0 ml-lg-3">Nos Services </a></li>
+                <li ><a href="#" class="btn btn-primary navbar-btn ml-0 ml-lg-3">Nos Logiciels </a></li>
+                  
+            </ul><a href="#" data-toggle="modal" data-target="#login" class="btn btn-primary navbar-btn ml-0 ml-lg-3">Espace Client </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
+    <!-- Login Modal-->
+    <div id="login" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade bd-example-modal-lg">
+      <div role="document" class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div id="log_row" class="row">
+            <div class="col-5">
+               <img src="images/login.jpg" alt="" class="responsive_log"> 
+            </div>
+  
+
+        <div id="log" class="col-7">
+          <div class="modal-header border-bottom-0">
+            <button type="button" data-dismiss="modal" aria-label="Close" id="close" class="close"><span aria-hidden="true">×</span></button>
+          </div>
+          <div class="modal-body p-4 p-lg-5">
+            <form action="#" class="login-form text-left">
+              <div class="form-group mb-4">
+                <label>Email address</label>
+                <input type="email" name="email" placeholder="name@company.com" class="form-control">
+              </div>
+              <div class="form-group mb-4">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Min 8 characters" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Login" id = "sub_but" class="btn btn-primary" onclick="authenticate(this.form)">
+              </div>
+            </form>
+          </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="background_img">
+        <img src="images/background.jpg" alt="" class="responsive">
+    </div>
+    <div class="container" id="content">
+    <div class="breadcrumb box">
+    <p class="titre">Pilotez votre entreprise et gagnez en agilité avec RDM : l’ERP international dédié aux PME et aux grandes entreprises.</p>
+    <p class="info">Avec <span style="font-weight: bold;">RDM</span>, vous reprenez le contrôle grâce à une solution plus rapide, plus simple et plus flexible.</p>
+    <p class="titre">Gagnez en rapidité dans toutes vos activités avec RDM</p>
+    <p class="info">RDM accélère l’ensemble de vos activités, des achats à la production, en passant par la gestion des stocks, des ventes, du service clients et des finances.</p>
+    <p class="info">Cette solution permet à chaque utilisateur d’aller à l’essentiel de ses tâches et assure <span style="font-weight: bold;">une meilleure visibilité sur les coûts</span> et les performances grâce à sa <span style="font-weight: bold;">fonction reporting et business intelligence</span>.</p>
+  </div>
+    <main class="main">
+        
+    <article class="box">
+        <p class="titre">Gagnez en simplicité avec l'ERP de RDM</p>
+        <p class="info ">RDM s’adapte au poste, aux préférences et aux flux de travail spécifiques des utilisateurs. Grâce à <span style="font-weight: bold;">un accès cloud<</span> et <span style="font-weight: bold;">mobile sécurisé</span>, vos collaborateurs peuvent accéder aux données dont ils ont besoin, quand ils le souhaitent et sur l’appareil de leur choix.</p>
+        <p class="info ">RDM simplifie la gestion de l’infrastructure logicielle de votre entreprise grâce à une suite unifiée d’applications. La solution peut être déployée dans le cloud ou bien dans votre centre de données afin de vous garantir un contrôle total de votre stratégie informatique.</p>
+    </article>
+    <article class="box">
+        <p class="titre">Gagnez en flexibilité pour faire face à vos besoins, contraintes et enjeux sectoriels avec RDM</p>
+        <p class="info ">L’ERP RDM couvre tous les besoins métiers de votre entreprise ainsi que les règles et processus spécifiques liés à votre domaine d’activité grâce à <span style="font-weight: bold;">des options de configuration et des applications flexibles</span>.  
+L’installation d’une seule instance logiciel suffit pour simplifier la gestion entre plusieurs établissements, sociétés/entités commerciales, régions et pays. </p>
+    </article>
+    <p class="titre">Les principales fonctionnalités de RDM </p>
+    <p class="info ">Avec RDM, vous bénéficiez d’un ERP tout en un.</p>
+  </main>
+ 
+  <aside class="sidebar box">
+    <img src="images/erp.png" alt="" class="responsive1">
+    <img src="images/erp1.jpg" alt="" class="responsive2">
+  </aside>
+
+  <main class="main">
+    
+ <article class="box1">
+      <p class="titre">Gestion internationale</p>
+<p class="info ">L’ERP de RDM est un logiciel de gestion d’entreprise qui vous accompagne dans votre développement à l’internationale.  
+Avec ses fonctionnalités :</p>
+<ul>
+<li class="info">Multilingue</li>
+<li class="info">Multi-devise</li>
+<li class="info">Multi-législation</li>
+<li class="info">Multi-référentiels comptables</li>
+<li class="info">Conforme aux normes internationales</li>
+</ul>
+<p class="info ">Vous pouvez gérer en toute simplicité la relation avec vos fournisseurs, vos sous-traitants, vos partenaires et vos clients.</p>
+    </article>
+</main>
+<aside class="sidebar box">
+<p class="titre">Gestion financière </p>
+<p class="info ">Contrôlez vos résultats avec précision et bénéficiez d’une visibilité globale en temps réel, tout en tenant compte des exigences opérationnelles locales.</p>
+<ul>
+<li class="info">Grand livre comptable</li>
+<li class="info">Gestion des flux de trésorerie</li>
+<li class="info">Gestion bancaire</li>
+<li class="info">Coûts et comptabilité analytique</li>
+<li class="info">Dépense, budgets et engagements</li>
+<li class="info">Immobilisations : suivez facilement et efficacement les actifs immobilisés de votre entreprise tout au long de leur cycle de vie</li>
+<li class="info">Rapports financiers : profitez d’analyses directement exploitables pour prendre des décisions plus rapides et plus stratégiques</li></ul>
+</aside>
+<main class="main1">
+    
+ <article class="box">
+<p class="titre1">Édito </p>
+<p class="info">Acteur de votre transformation numérique, RDM ERP vous conseille et vous accompagne dans le développement et le déploiement de solutions métiers innovantes.</p>
+</article>
+</main>
+<main class="main">
+    
+ <article class="box">
+    <table class="table table-borderless">
+  <thead>
+    <tr>
+      <th class="data" scope="col">RDM ERP</th>
+      <th class="data" scope="col">Nos Services</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="data"><a href="#" class = "foot">Qui sommes-nous?</a></td>
+      <td class="data"><a href="#" class = "foot">Expertise</a></td>
+    </tr>
+    <tr>
+      <td class="data"><a href="#" class = "foot">Nos Agences</a></td>
+      <td class="data"><a href="#" class = "foot">Conseiller</a></td>
+    </tr>
+    <tr>
+      <td class="data"><a href="#" class = "foot">Actualité</a></td>
+      <td class="data"><a href="#" class = "foot">Integrer</a></td>
+    </tr>
+    <tr>
+      <td class="data"><a href="#" class = "foot">Evènements</a></td>
+      <td class="data"><a href="#" class = "foot">Accompagner</a></td>
+    </tr>
+</tbody>
+</table>
+</article>
+
+</main>
+
+  <footer class="footer box">
+    <table class="table table-borderless">
+        <tbody>
+            <tr>
+                <td class="data">Copyright ©RDM ERP - Tous droits réservés</td>
+                <td class="data"><ul class="list-inline social mb-0">
+                <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook"></i></a><a href="#" class="social-link"><i class="fa fa-twitter"></i></a><a href="#" class="social-link"><i class="fa fa-youtube-play"></i></a><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
+              </ul></td>
+                <td class="data">Politique de confidentialité Mentions légales</td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- <div>Copyright ©Absys Cyborg - Tous droits réservés</div>
+    <div></div>
+    <div>Politique de confidentialité Mentions légales</div> -->
+
+</footer>
+</div>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="vendor/lightbox2/js/lightbox.js"></script>
+    <script src="js/front.js"></script>
+</body>
+</html>

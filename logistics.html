@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RDM ERP - Logistics</title>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="images/favicon.png">
+</head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="bg-light border-right" id="sidebar-wrapper">
+                <div class="d-flex align-items-center justify-content-center"><img src="images/user/admin.png" alt="" class="avatar"></div>
+                <hr>
+                <div id="menu" class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action bg-light" href="dashboard.html">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img src="images/icons/dashboard.png" alt="" class="dash_icons">
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                       <h6>Dashboard</h6> 
+                    </div></a>
+                    <a class="list-group-item list-group-item-action bg-light" href="achats.html">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img src="images/icons/achats.png" alt="" class="dash_icons">
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                       <h6>Achats</h6> 
+                    </div></a>
+                    <a class="list-group-item list-group-item-action bg-light" href="ventes.html">
+                    <div class="d-flex align-items-center justify-content-center ">
+                        <img src="images/icons/ventes.png" alt="" class="dash_icons">
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center ">
+                       <h6>Ventes</h6> 
+                    </div></a>
+                    <!-- <a class="list-group-item list-group-item-action bg-light" href="marketing.html">
+                    <div class="d-flex align-items-center justify-content-center ">
+                        <img src="images/icons/marketing.png" alt="" class="dash_icons">
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center ">
+                       <h6>Marketing</h6> 
+                    </div></a> -->
+                    <a class="list-group-item list-group-item-action bg-light" href="logistics.html">
+                    <div class="d-flex align-items-center justify-content-center ">
+                        <img src="images/icons/logistics.png" alt="" class="dash_icons">
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center ">
+                       <h6>Logistics</h6> 
+                    </div></a>
+                    <a class="list-group-item list-group-item-action bg-light" href="facturation.html">
+                    <div class="d-flex align-items-center justify-content-center ">
+                        <img src="images/icons/invoice.png" alt="" class="dash_icons">
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center ">
+                       <h6>Facturation</h6> 
+                    </div></a>
+                </div>
+            </div>
+            <!-- Page Content-->
+            <div id="page-content-wrapper" class="d-flex flex-column">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <img src="images/icons/toggle.png" id="menu-toggle">
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group" id="search">
+                            <input type="text" class="form-control bg-light small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2" id="search">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" id="btn_search">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars ml-2"></i></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-search"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-bell"></i>
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-envelope"></i>
+                                <span class="badge badge-danger badge-counter">7</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <img class="img-profile rounded-circle"
+                                    src="images/user/admin.png" id="profile_img">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-user"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-cogs"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-list"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="index.html">
+                                    <i class="fa fa-sign-out"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+                </nav>
+
+                <div class="container-fluid">
+                    <div class="d-sm-flex align-items-center justify-content-center">
+                        <h3 class="heading">LOGISTICS</h3>
+                    </div>
+                    <div class="row log_status">
+                        <div class="col-md-3">
+                            <div class="card-body status_log">
+                               <h4 class="fact alt_title">Revenue</h4> 
+                               <h6 class="fact alt_title">793,532 € <span style="color: red">(-3%)</span></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card-body status_log">
+                                <h4 class="fact alt_title">Profits</h4> 
+                                <h6 class="fact alt_title">517,232 € <span style="color: red">(-3%)</span></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card-body status_log">
+                                <h4 class="fact alt_title">Shipments</h4> 
+                                <h6 class="fact alt_title">465 <span style="color: green">(+2%)</span></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card-body status_log">
+                                <h4 class="fact alt_title">Average Delivery Time</h4> 
+                                <h6 class="fact alt_title">6.2h<span style="color: red">(-17%)</span></h6>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row log_charts">
+                        <div class="col-md-7 ">
+                            <div class="row">
+                                <div class="col-md-6 ">
+                                   <table class="table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <td class="put"><img class="bar" src="images/icons/barometer.png"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="put">25min</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="put">Average Loading Time</td>
+                                            </tr> 
+                                        </tbody>
+                                   </table>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <table class="table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <td class="put"><img class="bar" src="images/icons/bar.png"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="put">10 tons</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="put">Average Loading Weights</td>
+                                            </tr> 
+                                        </tbody>
+                                   </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <canvas id="loghisto" width="400" height="150"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <canvas class = "col_chart1" id="logpie" width="180" height="150"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <footer class="footer box">
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <td class="data">Copyright ©RDM ERP - Tous droits réservés</td>
+                        <td class="data"><ul class="list-inline social mb-0">
+                        <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook"></i></a><a href="#" class="social-link"><i class="fa fa-twitter"></i></a><a href="#" class="social-link"><i class="fa fa-youtube-play"></i></a><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
+                      </ul></td>
+                        <td class="data">Politique de confidentialité Mentions légales</td>
+                    </tr>
+                </tbody>
+            </table>
+        </footer>
+
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="js/chartjs.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="js/charts3.js"></script>
+        <script src="js/charts5.js"></script>
+    </body>
+</html>
